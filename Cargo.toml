@@ -2,6 +2,8 @@
 name = "math_expression_parser"
 version = "0.1.0"
 edition = "2024"
+readme = "README.md"
+description = "project for parsing and calculation mathematical expressions"
 
 [dependencies]
 anyhow = "1.0.100"
