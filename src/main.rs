@@ -1,5 +1,5 @@
 use anyhow::anyhow;
-use parser_project_sydorchuk::*;
+use math_expression_parser::*;
 use pest::Parser;
 
 fn main() -> anyhow::Result<()> {
