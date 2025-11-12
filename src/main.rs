@@ -28,12 +28,12 @@ fn main() -> anyhow::Result<()> {
         println!("Author: Nazar Sydorchuk <n.sydorchuk@ukma.edu.ua>");
         return Ok(());
     }
+
     let file_path: &PathBuf = matches.get_one("file").expect("No file path provided");
     let input = std::fs::read_to_string(file_path)?;
     let lines: Vec<&str> = input.lines().collect();
     for input in lines {
-        let result = parse_and_eval(input)?;
-        println!("{} = {}", input, result);
+        parse_and_eval(input)?;
     }
     Ok(())
 }

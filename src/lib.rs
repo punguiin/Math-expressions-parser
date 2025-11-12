@@ -2,6 +2,8 @@ use anyhow::anyhow;
 use pest::Parser;
 use pest::iterators::Pair;
 use pest_derive::Parser;
+use std::fs::OpenOptions;
+use std::io::Write;
 
 #[derive(Parser)]
 #[grammar = "grammar.pest"]
@@ -145,7 +147,17 @@ pub fn eval_expr(expr: &Expr) -> anyhow::Result<f64> {
 
 pub fn parse_and_eval(input: &str) -> anyhow::Result<f64> {
     let e = parse_expression(input)?;
-    eval_expr(&e)
+    let res = eval_expr(&e)?;
+
+    let mut file = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open("res.txt")
+        .map_err(|e| anyhow!("Failed to open res.txt: {}", e))?;
+    writeln!(file, "({}) = {}", input.trim(), res)
+        .map_err(|e| anyhow!("Failed to write to res.txt: {}", e))?;
+
+    Ok(res)
 }
 
 #[cfg(test)]
