@@ -1,10 +1,11 @@
 [package]
 name = "math_expression_parser"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 license = "MIT"
 readme = "README.md"
 description = "project for parsing and calculation mathematical expressions"
+repository = "https://github.com/punguiin/Math-expressions-parser"
 
 [dependencies]
 anyhow = "1.0.100"
