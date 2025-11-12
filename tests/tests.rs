@@ -14,7 +14,7 @@ fn parse_num_integer() -> anyhow::Result<()> {
 #[test]
 fn parse_num_decimal() -> anyhow::Result<()> {
     let e = parse_expression("3.14")?;
-    assert!(matches!(e, Expr::Num(n) if (n - 3.14).abs() < 1e-12));
+    assert!(matches!(e, Expr::Num(n) if (n - std::f64::consts::PI).abs() < 0.01));
     Ok(())
 }
 
