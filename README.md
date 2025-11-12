@@ -37,7 +37,8 @@ fn main() -> anyhow::Result<()> {
 ## Output example
 
 ```txt
-
+((((exp(1)/pow(2,3))-sin(log(100, 10)))+(cos(ln(7.5))*tan(45)))) = -1.2654508780369933
+((3+4)) = 7
 ```
 
 ## Grammar
